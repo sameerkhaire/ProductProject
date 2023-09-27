@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProductDto>
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="text-white">Product list</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row pb-3">
+            <div class="col-6">
+            </div>
+            <div class="col-6 text-bg-danger end">
+                <a asp-action="CreateProduct" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i>Create New Product</a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Discount Amount</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.ProductName</td>
+                        <td>@((i.DiscountAmount).ToString("c"))</td>
+                        <td>
+                            <a asp-action="DeleteCupon" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

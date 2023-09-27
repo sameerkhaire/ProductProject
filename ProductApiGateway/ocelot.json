@@ -1,0 +1,36 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:7777"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Product",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+
+      "UpstreamPathTemplate": "/cust",
+      "UpstreamHttpMethod": [ "GET", "POST","PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+
+      "UpstreamPathTemplate": "/cust/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE"]
+    }
+
+
+  ]
+
+}
